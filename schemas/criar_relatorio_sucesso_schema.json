@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "result": {
+      "type": "object",
+      "properties": {
+        "numero": {
+          "type": "string",
+          "pattern": "[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}"
+        }
+      },
+      "required": [
+        "numero"
+      ]
+    },
+    "status_code": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "result",
+    "status_code"
+  ]
+}

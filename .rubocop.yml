@@ -1,0 +1,44 @@
+Layout/EmptyLinesAroundBlockBody:
+  EnforcedStyle: empty_lines
+
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: empty_lines_except_namespace
+
+Layout/LineLength:
+  Enabled: false
+
+#
+# METRICS
+#
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+#
+# NAMING
+#
+
+Naming/FileName:
+  Enabled: false
+
+#
+# STYLE - https://rubocop.readthedocs.io/en/latest/cops_style
+#
+
+Style/Documentation: # description of a class
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/RescueStandardError:
+  EnforcedStyle: implicit
+
+#Style/StringLiterals: # single or double quotes
+#  Enabled: false

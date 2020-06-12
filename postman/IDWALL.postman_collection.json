@@ -1,0 +1,981 @@
+{
+	"info": {
+		"_postman_id": "e19be722-cb38-4b3e-b6db-2cf161cf51e8",
+		"name": "IDWALL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/relatorios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4746461e-e534-43e0-9242-bf3d9fd4e26a",
+						"exec": [
+							"pm.environment.set(\"numero\", JSON.parse(responseBody).result.numero);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"matriz\": \"consultaPessoaDefault\",\n    \"parametros\": {\n        \"cpf_data_de_nascimento\": \"\",\n        \"cpf_nome\": \"\",\n        \"cpf_numero\": \"\"\n    }\n}"
+				},
+				"url": {
+					"raw": "https://{{url}}/relatorios",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"relatorios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "token errado",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"matriz\": \"consultaPessoaDefault\",\n    \"parametros\": {\n        \"cpf_data_de_nascimento\": \"\",\n        \"cpf_nome\": \"\",\n        \"cpf_numero\": \"\"\n    }\n}"
+						},
+						"url": {
+							"raw": "https://{{url}}/relatorios",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"relatorios"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Mar 2020 23:37:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "vary",
+							"value": "accept-encoding"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000; includeSubDomains; preload"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "577b800f9c8df720-GRU"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Unauthorized\",\n    \"message\": \"Falha na autenticação. Por favor verifique o token utilizado e se o acesso foi liberado.\",\n    \"status_code\": 401\n}"
+				},
+				{
+					"name": "falta campos",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"matriz\": \"consultaPessoaDefault\",\n    \"parametros\": {\n        \"cpf_data_de_nascimento\": \"\",\n        \"cpf_nome\": \"\",\n        \"cpf_numero\": \"09265394773\"\n    }\n}"
+						},
+						"url": {
+							"raw": "https://{{url}}/relatorios",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"relatorios"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Mar 2020 22:47:54 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "vary",
+							"value": "accept-encoding"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000; includeSubDomains; preload"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "577b37a40a83f627-GRU"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Bad Request\",\n    \"message\": \"ValidationError: child \\\"cpf_data_de_nascimento\\\" fails because [\\\"cpf_data_de_nascimento\\\" is not allowed to be empty]\",\n    \"status_code\": 400\n}"
+				},
+				{
+					"name": "token vazio",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"matriz\": \"consultaPessoaDefault\",\n    \"parametros\": {\n        \"cpf_data_de_nascimento\": \"\",\n        \"cpf_nome\": \"\",\n        \"cpf_numero\": \"\"\n    }\n}"
+						},
+						"url": {
+							"raw": "https://{{url}}/relatorios",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"relatorios"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Mar 2020 23:35:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "vary",
+							"value": "accept-encoding"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000; includeSubDomains; preload"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "577b7e0a6d01f720-GRU"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Unauthorized\",\n    \"message\": \"Token de autenticação não especificado\",\n    \"status_code\": 401\n}"
+				},
+				{
+					"name": "sucesso",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"matriz\": \"consultaPessoaDefault\",\n    \"parametros\": {\n        \"cpf_data_de_nascimento\": \"15/05/1981\",\n        \"cpf_nome\": \"Rodrigo Matola de Miranda Cardoso\",\n        \"cpf_numero\": \"09265394773\"\n    }\n}"
+						},
+						"url": {
+							"raw": "https://{{url}}/relatorios",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"relatorios"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Mar 2020 22:40:41 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "vary",
+							"value": "accept-encoding"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000; includeSubDomains; preload"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "577b2d14ff4af627-GRU"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"numero\": \"3ee45b3e-7815-4245-92db-287da6809635\"\n    },\n    \"status_code\": 200\n}"
+				},
+				{
+					"name": "campos vazios",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"matriz\": \"consultaPessoaDefault\",\n    \"parametros\": {\n        \"cpf_data_de_nascimento\": \"\",\n        \"cpf_nome\": \"\",\n        \"cpf_numero\": \"\"\n    }\n}"
+						},
+						"url": {
+							"raw": "https://{{url}}/relatorios",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"relatorios"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Mar 2020 22:47:10 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "vary",
+							"value": "accept-encoding"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000; includeSubDomains; preload"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "577b3690c8a1f627-GRU"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Bad Request\",\n    \"message\": \"É necessário enviar ao menos um parâmetro para criação do relatório.\",\n    \"status_code\": 400\n}"
+				}
+			]
+		},
+		{
+			"name": "/relatorios imagem url",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4746461e-e534-43e0-9242-bf3d9fd4e26a",
+						"exec": [
+							"pm.environment.set(\"numero\", JSON.parse(responseBody).result.numero);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"matriz\": \"nome_da_matriz\",\n  \"parametros\": {\n    \"cnh_imagem_completa\": \"https://example.com/my_full_image.jpg\",\n    \"imagens_face_match\":[\"https://example.com/image_1.jpg\",\"\"]\n  }\n}"
+				},
+				"url": {
+					"raw": "https://{{url}}/relatorios",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"relatorios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/relatorios imagem base64",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4746461e-e534-43e0-9242-bf3d9fd4e26a",
+						"exec": [
+							"pm.environment.set(\"numero\", JSON.parse(responseBody).result.numero);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"matriz\": \"nome_da_matriz\",\n  \"parametros\": {\n    \"cnh_imagem_completa\": \"data:image/png;base64, aW1hZ2VfZXhhbXBsZQ==\",\n    \"imagens_face_match\": [\"data:image/png;base64, aW1hZ2VfZXhhbXBsZTI=\",\"\"]\n  }\n}"
+				},
+				"url": {
+					"raw": "https://{{url}}/relatorios",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"relatorios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/relatorios/[numero]",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{url}}/relatorios/{{numero}}",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"relatorios",
+						"{{numero}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "processando",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/relatorios/{{numero}}",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"relatorios",
+								"{{numero}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 22 Mar 2020 01:40:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "vary",
+							"value": "accept-encoding"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000; includeSubDomains; preload"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "577c3424bb4af617-GRU"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"numero\": \"e7459462-0ebd-4d49-96d7-e11e844b1899\",\n        \"status\": \"PROCESSANDO\",\n        \"nome\": \"consultaPessoaDefault\",\n        \"mensagem\": \"Validação Pendente.\",\n        \"resultado\": null,\n        \"validado_em\": \"2020-03-22T01:40:13.467Z\",\n        \"validado_por\": null,\n        \"validado_manualmente\": false,\n        \"atualizado_em\": \"2020-03-22T01:40:13.496Z\",\n        \"criado_em\": \"2020-03-22T01:40:13.376Z\",\n        \"criado_por\": \"rodrigo.matola\"\n    },\n    \"status_code\": 200\n}"
+				},
+				{
+					"name": "concluido",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/relatorios/3ee45b3e-7815-4245-92db-287da6809635",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"relatorios",
+								"3ee45b3e-7815-4245-92db-287da6809635"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Mar 2020 23:00:08 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "vary",
+							"value": "accept-encoding"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000; includeSubDomains; preload"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "577b498dfdbaf60f-GRU"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"numero\": \"3ee45b3e-7815-4245-92db-287da6809635\",\n        \"status\": \"CONCLUIDO\",\n        \"nome\": \"consultaPessoaDefault\",\n        \"mensagem\": \"Válido.\",\n        \"resultado\": \"VALID\",\n        \"validado_em\": \"2020-03-21T22:40:41.937Z\",\n        \"validado_por\": null,\n        \"validado_manualmente\": false,\n        \"atualizado_em\": \"2020-03-21T22:44:32.831Z\",\n        \"criado_em\": \"2020-03-21T22:40:41.825Z\",\n        \"criado_por\": \"rodrigo.matola\"\n    },\n    \"status_code\": 200\n}"
+				},
+				{
+					"name": "numero não encontrado",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/relatorios/3ee45b3e-7815-4245-92db-287da6809636",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"relatorios",
+								"3ee45b3e-7815-4245-92db-287da6809636"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Mar 2020 23:44:49 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "vary",
+							"value": "accept-encoding"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000; includeSubDomains; preload"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "577b8b05d97cf6c3-GRU"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Not Found\",\n    \"message\": \"Protocolo não encontrado.\",\n    \"status_code\": 404\n}"
+				}
+			]
+		},
+		{
+			"name": "/relatorios validacoes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{url}}/relatorios/{{numero}}/validacoes",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"relatorios",
+						"{{numero}}",
+						"validacoes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "processando (validação pendente)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/relatorios/{{numero}}/validacoes",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"relatorios",
+								"{{numero}}",
+								"validacoes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 22 Mar 2020 01:40:19 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "vary",
+							"value": "accept-encoding"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000; includeSubDomains; preload"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "577c34339d79f617-GRU"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"atualizado_em\": \"2020-03-22T01:40:13.496Z\",\n        \"mensagem\": \"Validação Pendente.\",\n        \"nome\": \"consultaPessoaDefault\",\n        \"numero\": \"e7459462-0ebd-4d49-96d7-e11e844b1899\",\n        \"resultado\": null,\n        \"status\": \"PROCESSANDO\",\n        \"validacoes\": [\n            {\n                \"regra\": \"idwall.matrix.regras.cpf.RegraObito\",\n                \"nome\": \"Registro de óbito na Receita Federal\",\n                \"descricao\": \"Não deve constar registro de óbito na Receita Federal\",\n                \"mensagem\": \"Validação Pendente.\"\n            },\n            {\n                \"regra\": \"idwall.matrix.regras.protestos.RegraProtestos\",\n                \"nome\": \"Protestos\",\n                \"descricao\": \"Não devem constar protestos\",\n                \"mensagem\": \"Validação Pendente.\"\n            },\n            {\n                \"regra\": \"idwall.matrix.regras.cpf.RegraNomeReceitaFederal\",\n                \"nome\": \"Nome na Receita Federal\",\n                \"descricao\": \"Nome deve ser igual ao cadastrado na Receita Federal\",\n                \"mensagem\": \"Validação Pendente.\"\n            },\n            {\n                \"regra\": \"idwall.matrix.regras.processos.RegraProcessos\",\n                \"nome\": \"Processos nos Tribunais de Justiça\",\n                \"descricao\": \"Não deve constar processos nos Tribunais de Justiça\",\n                \"mensagem\": \"Validação Pendente.\"\n            },\n            {\n                \"regra\": \"idwall.matrix.regras.antecedentes.RegraAntecedente\",\n                \"nome\": \"Antecedentes Criminais\",\n                \"descricao\": \"Não deve constar antecedentes criminais\",\n                \"mensagem\": \"Validação Pendente.\"\n            },\n            {\n                \"regra\": \"idwall.matrix.regras.cpf.RegraSituacaoReceitaFederal\",\n                \"nome\": \"Situação Cadastral Regular\",\n                \"descricao\": \"Situação cadastral do CPF deve ser REGULAR\",\n                \"mensagem\": \"Validação Pendente.\"\n            }\n        ],\n        \"validado_em\": \"2020-03-22T01:40:13.467Z\",\n        \"validado_manualmente\": false,\n        \"validado_por\": null\n    },\n    \"status_code\": 200\n}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}

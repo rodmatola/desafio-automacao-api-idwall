@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "error": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "status_code": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "error",
+    "message",
+    "status_code"
+  ]
+}

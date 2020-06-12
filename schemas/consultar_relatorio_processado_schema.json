@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "result": {
+      "type": "object",
+      "properties": {
+        "numero": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "nome": {
+          "type": "string"
+        },
+        "mensagem": {
+          "type": "string"
+        },
+        "resultado": {
+          "type": "string"
+        },
+        "validado_em": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "validado_por": {
+          "type": "null"
+        },
+        "validado_manualmente": {
+          "type": "boolean"
+        },
+        "atualizado_em": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "criado_em": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "criado_por": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "numero",
+        "status",
+        "nome",
+        "mensagem",
+        "resultado",
+        "validado_em",
+        "validado_por",
+        "validado_manualmente",
+        "atualizado_em",
+        "criado_em",
+        "criado_por"
+      ]
+    },
+    "status_code": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "result",
+    "status_code"
+  ]
+}
