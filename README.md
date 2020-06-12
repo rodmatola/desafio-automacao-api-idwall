@@ -2,8 +2,8 @@
 
 # Idwall - Desafio de automação de testes de API
 
-- [Enunciado do desafio automação API](https://github.com/rodmatola/desafios-qa/tree/master/qa-engineer-api/apis)
-- [Enunciado do desafio plando para área de QA](https://github.com/idwall/desafios-qa/blob/master/qa-engineer-api/planning)
+- [Enunciado do desafio "automação API"](https://github.com/rodmatola/desafios-qa/tree/master/qa-engineer-api/apis)
+- [Enunciado do desafio "Plano para área de QA"](https://github.com/idwall/desafios-qa/blob/master/qa-engineer-api/planning)
 
 ## Configurações utilizadas
 - Ruby 2.6.3
